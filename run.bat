@@ -1,5 +1,4 @@
 @echo off
-mvn compile
-mvn package
-java -cp target/helloworld-1.0.jar
+SET JAVA_HOME=C:\Program Files\Java\jdk-12.0.1
+mvn clean install exec:java
 pause
