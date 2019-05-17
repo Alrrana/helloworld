@@ -2,6 +2,7 @@ package hw;
 
 public class InsertionClassic {
     public static void main(String[] args) {
+        Singletone.SORTS.getInstance();
         Arrays arrayHelper = new Arrays();
         Sorts sortHelper = new Sorts();
 //        int[] first = arrayHelper.random();
