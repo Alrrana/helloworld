@@ -9,6 +9,8 @@ public class Quick {
 //
         System.out.println("Введенный массив: ");
 
+        new Sorts();
+
         arrayHelper.print(first);
 
         sortHelper.QuickSort(first);

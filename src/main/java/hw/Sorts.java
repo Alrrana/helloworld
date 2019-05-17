@@ -5,6 +5,14 @@ public class Sorts {
     private int comparisons;
     private int exchange;
 
+    public Sorts() {
+    }
+
+    public Sorts(int comparisons, int exchange) {
+        this.comparisons = comparisons;
+        this.exchange = exchange;
+    }
+
     public void QuickSort(int[] a) {
         comparisons = 0;
         exchange = 0;

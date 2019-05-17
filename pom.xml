@@ -19,17 +19,86 @@
     <!--    </dependencies>-->
     <!--    &lt;!&ndash; end::joda[] &ndash;&gt;-->
 
+    <profiles>
+
+        <profile>
+            <id>quick</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <configuration>
+                            <mainClass>hw.Quick</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+
+        </profile>
+
+        <profile>
+            <id>merge</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <configuration>
+                            <mainClass>hw.Merge</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>insertclassic</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <configuration>
+                            <mainClass>hw.InsertionClassic</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>insertmodified</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <configuration>
+                            <mainClass>hw.InsertionModified</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
 
     <build>
+
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <configuration>
-                    <mainClass>hw.Quick</mainClass>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <!-- Build an executable JAR -->
@@ -70,35 +139,7 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>quick</id>
-            <properties>
-                <mainClass>hw.Quick</mainClass>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>merge</id>
-            <properties>
-                <mainClass>hw.Merge</mainClass>
-            </properties>
-        </profile>
-        <profile>
-            <id>insertclassic</id>
-            <properties>
-                <mainClass>hw.InsertionClassic</mainClass>
-            </properties>
-        </profile>
-        <profile>
-            <id>insertmodified</id>
-            <properties>
-                <mainClass>hw.InsertionModified</mainClass>
-            </properties>
-        </profile>
-    </profiles>
+
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
