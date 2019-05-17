@@ -2,10 +2,28 @@ package hw;
 
 public class Sorts {
 
-    private int comparisons;
-    private int exchange;
+    private Integer comparisons = 0;
+    private Integer exchange = 0;
+
+    static{
+        System.out.println("Static block");
+    }
+
+    {
+        System.out.println("Dinamyc block");// инициализ полей - ди6намический блок - - конструктор
+        outp();
+
+    }
 
     public Sorts() {
+        comparisons = 1;
+        exchange = 1;
+        System.out.println("constr");
+
+    }
+
+    public void outp() {
+        System.out.println(comparisons+exchange);
     }
 
     public Sorts(int comparisons, int exchange) {

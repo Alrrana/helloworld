@@ -4,6 +4,7 @@ public class Quick {
     public static void main(String[] args) {
         Arrays arrayHelper = new Arrays();
         Sorts sortHelper = new Sorts();
+        sortHelper.outp();
 //        int[] first = arrayHelper.random();
         int[] first = arrayHelper.CreateStandart();
 //
