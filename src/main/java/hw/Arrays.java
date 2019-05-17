@@ -23,6 +23,7 @@ public class Arrays {
                 System.out.print("Введено не число или отрицательное число, попробуйте ещё раз \n");
             }
         }
+
         return n;
     }
 

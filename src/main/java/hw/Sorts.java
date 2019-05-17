@@ -54,7 +54,7 @@ public class Sorts {
         System.out.print("\nMergeSort: \n   Количество сравнений: " + comparisons + "\n   Количество обменов(обменов): " + exchange);
     }
 
-    public void MergeSort(int[] a) {
+    private void MergeSort(int[] a) {
         int mid = (a.length) / 2;
         int[] L = new int[mid];
         for (int i = 0; i < L.length; i++) {
@@ -143,7 +143,7 @@ public class Sorts {
     }
 
 
-    public void InsertionSort(int[] a) {
+    public void InsertionSortModified(int[] a) {
         comparisons = 0;
         exchange = 0;
 
