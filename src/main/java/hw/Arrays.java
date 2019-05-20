@@ -47,25 +47,38 @@ public class Arrays {
         return n;
     }
 
-    public int[] CreateVariable(int ... b){
-        if(b.length==(b[0]-1))
-        return b;
-        else{
-            if(b.length<b[0]) {
+    public int[] CreateVariable(int... b) {
+        // empty
+        if (b.length == 0) {
+            return random();
+            // 1
+        } else if ((b.length == b[0]) && (b.length == 1)) {
+            return b;
+            // 4 1 2 3 4
+        } else if (b.length == (b[0] + 1)) {
+            int[] a = new int[b[0]];
+            for (int i = 1; i < b.length; i++) {
+                a[i - 1] = b[i];
+            }
+            return a;
+
+        } else {
+            //4 1 2
+            if (b.length - 1 < b[0]) {
                 int[] a = new int[b[0]];
                 for (int i = 1; i < b.length; i++) {
                     a[i - 1] = b[i];
                 }
-                for (int i = b.length - 1; i < b[0] - 1; i++) {
+                for (int i = b.length - 1; i < b[0]; i++) {
                     final Random random = new Random();
                     a[i] = random.nextInt(100);
                 }
                 return a;
-            }
-            else{
+                // 4 1 2 3 4 5 6
+            } else {
                 int[] a = new int[b[0]];
-                for (int i = 1; i < b.length; i++) {
-                    a[i - 1] = b[i];
+                for (int i = 0; i < a.length; i++) {
+                    a[i] = b[i + 1];
                 }
                 return a;
             }

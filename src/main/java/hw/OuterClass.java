@@ -10,7 +10,7 @@ public class OuterClass {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        //throw new Exception();
+//        throw new Error();
     }
 
     private int one = 1;
