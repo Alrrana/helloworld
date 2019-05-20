@@ -167,7 +167,13 @@ public class Sorts {
         System.out.print("\nInsertSort(Classic): \n   Количество сравнений: " + comparisons + "\n   Количество обменов(действий): " + exchange + "\n   Количество обменов(обменов): " + exchange / 3);
 
     }
+    public static void method1(){
+        System.out.print("method1()");
+    }
 
+    public static void method1(int n){
+        System.out.print("method1(int n)");
+    }
 
     public void InsertionSortModified(int[] a) {
         comparisons = 0;

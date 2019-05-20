@@ -16,5 +16,11 @@ public class InsertionModified {
         System.out.println("\nОтсортированные массивы(Метод InsertionSortModified): ");
         arrayHelper.print(first);
 
+        try{
+
+        }catch(Exception ex){
+
+        }
+
     }
 }

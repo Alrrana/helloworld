@@ -27,6 +27,7 @@ public class Arrays {
         return n;
     }
 
+
     private int parserNegative() {
         Pattern pattern = Pattern.compile("^(-|\\+)?[0-9]+?$");
         Matcher matcher;
@@ -44,6 +45,31 @@ public class Arrays {
             }
         }
         return n;
+    }
+
+    public int[] CreateVariable(int ... b){
+        if(b.length==(b[0]-1))
+        return b;
+        else{
+            if(b.length<b[0]) {
+                int[] a = new int[b[0]];
+                for (int i = 1; i < b.length; i++) {
+                    a[i - 1] = b[i];
+                }
+                for (int i = b.length - 1; i < b[0] - 1; i++) {
+                    final Random random = new Random();
+                    a[i] = random.nextInt(100);
+                }
+                return a;
+            }
+            else{
+                int[] a = new int[b[0]];
+                for (int i = 1; i < b.length; i++) {
+                    a[i - 1] = b[i];
+                }
+                return a;
+            }
+        }
     }
 
     public int[] CreateStandart() {
