@@ -51,7 +51,7 @@ public class VariousArray {
                 (B instanceof Two));
         System.out.println("B instanceof Three: " +
                 (B instanceof Three));
-        four.doSomething();
+
 
 //        int[] first = arrayHelper.CreateVariable(); // 1 2 rnd rnd
 //        arrayHelper.print(first);

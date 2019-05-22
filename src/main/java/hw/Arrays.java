@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 public class Arrays {
     Scanner in = new Scanner(System.in);
 
+
+
     private int parser() {
         Pattern pattern = Pattern.compile("^[0-9]+?$");
         Matcher matcher;
@@ -52,10 +54,7 @@ public class Arrays {
         if (b.length == 0) {
             return random();
             // 1
-        } else if ((b.length == b[0]) && (b.length == 1)) {
-            return b;
-            // 4 1 2 3 4
-        } else if (b.length == (b[0] + 1)) {
+        }  else if (b.length == (b[0] + 1)) {
             int[] a = new int[b[0]];
             for (int i = 1; i < b.length; i++) {
                 a[i - 1] = b[i];
