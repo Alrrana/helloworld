@@ -5,15 +5,15 @@ public class Sorts {
     private Integer comparisons = 0;
     private Integer exchange = 0;
 
-    static{
-        System.out.println("Static block");
-    }
-
-    {
-        System.out.println("Dinamyc block");// инициализ полей - ди6намический блок - - конструктор
-        outp();
-
-    }
+//    static {
+//        System.out.println("Static block");
+//    }
+//
+//    {
+//        System.out.println("Dinamyc block");// инициализ полей - ди6намический блок - - конструктор
+//        outp();
+//
+//    }
 
     public Sorts() {
         comparisons = 1;
@@ -23,7 +23,7 @@ public class Sorts {
     }
 
     public void outp() {
-        System.out.println(comparisons+exchange);
+        System.out.println(comparisons + exchange);
     }
 
     public Sorts(int comparisons, int exchange) {
@@ -58,9 +58,7 @@ public class Sorts {
                 comparisons += 3;
             }
             if (i < j) {
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
+                swap(a, i, j);
                 if (i == mid)
                     mid = j;
                 else if (j == mid)
@@ -158,22 +156,27 @@ public class Sorts {
                 comparisons++;
             }
             if (minFlag) {
-                int temp = a[n];
-                a[n] = a[minIndx];
-                a[minIndx] = temp;
-                exchange += 3;
+                swap(a, n, minIndx);
             }
         }
         System.out.print("\nInsertSort(Classic): \n   Количество сравнений: " + comparisons + "\n   Количество обменов(действий): " + exchange + "\n   Количество обменов(обменов): " + exchange / 3);
 
     }
-    public static void method1(){
-        System.out.print("method1()");
+
+    void swap(int[] array, int a, int b) {
+        int temp = array[a];
+        array[a] = array[b];
+        array[b] = temp;
+
     }
 
-    public static void method1(int n){
-        System.out.print("method1(int n)");
-    }
+//    public static void method1() {
+//        System.out.print("method1()");
+//    }
+//
+//    public static void method1(int n) {
+//        System.out.print("method1(int n)");
+//    }
 
     public void InsertionSortModified(int[] a) {
         comparisons = 0;
@@ -185,9 +188,9 @@ public class Sorts {
 
         for (int n = 0; n < a.length / 2; n++) {
             min = a[n];
-            max = a[n]; //a.length - 1 - n
+            max = a[a.length - 1 - n]; //a.length - 1 - n
             minIndx = n;
-            maxIndx = n;
+            maxIndx = a.length - 1 - n;
             minFlag = false;
             maxFlag = false;
             comparisons++;
@@ -205,22 +208,43 @@ public class Sorts {
                 }
                 comparisons++;
             }
-            if (minFlag) {
-                int temp = a[n];
-                a[n] = a[minIndx];
-                a[minIndx] = temp;
-                exchange += 3;
-            }
-            if (maxFlag) {
-                int temp = a[a.length - n - 1];
-                a[a.length - n - 1] = a[maxIndx];
-                a[maxIndx] = temp;
-                exchange += 3;
-            }
-        }
-        System.out.print("\nInsertSort(Modified): \n   Количество сравнений: " + comparisons + "\n   Количество обменов(действий): " + exchange + "\n   Количество обменов(обменов): " + exchange / 3);
+            if (minFlag || maxFlag) {
 
+                if ((maxIndx == n) && (minIndx == a.length - n - 1)) {
+                    swap(a, maxIndx, minIndx);
+
+                    exchange += 3;
+                } else if (maxIndx == n) {
+                    swap(a, maxIndx, minIndx);
+                    swap(a, minIndx, a.length - n - 1);
+
+                    exchange += 3;
+                } else if (minIndx == a.length - n - 1) {
+                    swap(a, maxIndx, minIndx);
+                    swap(a, maxIndx, n);
+
+                    exchange += 3;
+                } else {
+                    if (maxFlag) {
+                        exchange += 3;
+                        swap(a,a.length - n - 1 , maxIndx);
+                    }
+                    if (minFlag) {
+                        swap(a, n, minIndx);
+                        exchange += 3;
+                    }
+                }
+
+
+            }
+
+        }
+
+
+        System.out.print("\nInsertSort(Modified): \n   Количество сравнений: " + comparisons + "\n   Количество обменов(действий): " + exchange + "\n   Количество обменов(обменов): " + exchange / 3);
     }
 
-
 }
+
+
+

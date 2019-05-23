@@ -17,8 +17,8 @@ public class InsertionClassic {
         System.out.println("\nОтсортированные массивы(Метод InsertionSortClassic): ");
         arrayHelper.print(first);
 
-        Sorts.method1();
-        Sorts.method1(3);
+//        Sorts.method1();
+////        Sorts.method1(3);
 //        int n = 0;
 //        int m = 1;
 //        try {

@@ -39,7 +39,7 @@ class KeyObj {
 
 public class Hashmap {
     public static void main(String[] args) {
-        HashMap<KeyObj, String> hashMap = new HashMap<KeyObj, String>();
+        Map<KeyObj, String> hashMap = new HashMap<>();
         KeyObj a = new KeyObj(1, false);
         KeyObj b = new KeyObj(2,true);
 
@@ -54,7 +54,7 @@ public class Hashmap {
                     + entry.getValue());
         }
 
-        a.setA(0);
+        a.setB(true);
 //        System.out.println(a.getA());
 //        hashMap.put(a,"Frog");
 

@@ -5,8 +5,10 @@ public class InsertionModified {
         Arrays arrayHelper = new Arrays();
         Sorts sortHelper = new Sorts();
 //        int[] first = arrayHelper.random();
-        int[] first = arrayHelper.CreateStandart();
+//        int[] first = arrayHelper.CreateStandart();
 //
+
+        int[] first ={6, 8, 5, 9, 7, 4, 2, 3, 0, 1};
         System.out.println("Введенный массив: ");
 
         arrayHelper.print(first);
@@ -16,9 +18,9 @@ public class InsertionModified {
         System.out.println("\nОтсортированные массивы(Метод InsertionSortModified): ");
         arrayHelper.print(first);
 
-        try{
+        try {
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
 
         }
 

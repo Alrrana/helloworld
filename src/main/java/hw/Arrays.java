@@ -11,39 +11,34 @@ public class Arrays {
 
 
 
-    private int parser() {
-        Pattern pattern = Pattern.compile("^[0-9]+?$");
-        Matcher matcher;
+    private int parserLength() {
         int n = 0;
-        String str;
         while (n <= 0) {
-            str = in.nextLine();
-            matcher = pattern.matcher(str);
-            if (matcher.matches()) {
-                n = Integer.valueOf(str);
-            } else {
-                System.out.print("Введено не число или отрицательное число, попробуйте ещё раз \n");
-            }
+           n=parser("Введено не число или отрицательное число, попробуйте ещё раз \n");
         }
 
         return n;
     }
 
+    protected String input(){
+        return in.nextLine();
+    }
 
-    private int parserNegative() {
+
+    private int parser(String Message) {
         Pattern pattern = Pattern.compile("^(-|\\+)?[0-9]+?$");
         Matcher matcher;
         int n = 0;
         boolean flag = false;
         String str;
         while (!flag) {
-            str = in.nextLine();
+            str = input();//input();
             matcher = pattern.matcher(str);
             if (matcher.matches()) {
                 n = Integer.valueOf(str);
                 flag = true;
             } else {
-                System.out.print("Введено не число , попробуйте ещё раз \n");
+                System.out.print(Message);//
             }
         }
         return n;
@@ -86,11 +81,11 @@ public class Arrays {
 
     public int[] CreateStandart() {
         System.out.print("Введите количество элементов массива: ");
-        int n = parser();
+        int n = parserLength();
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Введите элемент массива: ");
-            array[i] = parserNegative();
+            array[i] = parser("Введено не число , попробуйте ещё раз \n");
         }
         return array;
     }
@@ -123,9 +118,20 @@ public class Arrays {
 //        return array;
 //    }
 
+    public static int[] rndWithLength(int n){
+        final Random random = new Random();
+
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = random.nextInt(100);
+        }
+        return array;
+    }
+
+
     public int[] random() {
         System.out.print("Введите количество элементов рандомного заполняемого массива: ");
-        int n = parser();
+        int n = parserLength();
 
 //            if(in.hasNext("^\\s?[0-9]+\\\n?$")){
 //                n=in.nextInt();
@@ -155,12 +161,7 @@ public class Arrays {
 //            }
 
 
-        int[] array = new int[n];
-        final Random random = new Random();
-        for (int i = 0; i < n; i++) {
-            array[i] = random.nextInt(100);
-        }
-        return array;
+               return rndWithLength(n);
     }
 
 
