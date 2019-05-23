@@ -1,16 +1,17 @@
 package hw;
 
-import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Arrays {
     protected InputHelper inputHelper = new InputHelper();
+    private final Random random = new Random();
 
     public void setInputHelper(InputHelper inputHelper) {
         this.inputHelper = inputHelper;
+    }
+
+   public int oneRandomInt() {
+        return random.nextInt();
     }
 
     public int[] CreateVariable(int... b) {
@@ -18,7 +19,7 @@ public class Arrays {
         if (b.length == 0) {
             return random();
             // 1
-        }  else if (b.length == (b[0] + 1)) {
+        } else if (b.length == (b[0] + 1)) {
             int[] a = new int[b[0]];
             for (int i = 1; i < b.length; i++) {
                 a[i - 1] = b[i];
@@ -33,8 +34,7 @@ public class Arrays {
                     a[i - 1] = b[i];
                 }
                 for (int i = b.length - 1; i < b[0]; i++) {
-                    final Random random = new Random();
-                    a[i] = random.nextInt(100);
+                    a[i] = oneRandomInt(); //random.nextInt(100);
                 }
                 return a;
                 // 4 1 2 3 4 5 6
@@ -63,7 +63,7 @@ public class Arrays {
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Введите элемент массива: ");
-            array[i] =inputHelper.parser("Введено не число , попробуйте ещё раз \n");
+            array[i] = inputHelper.parser("Введено не число , попробуйте ещё раз \n");
         }
         return array;
     }
@@ -78,12 +78,10 @@ public class Arrays {
 //        return array;
 //    }
 
-    public int[] rndWithLength(int n){
-        final Random random = new Random();
-
+    public int[] rndWithLength(int n) {
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
-            array[i] = random.nextInt(100);
+            array[i] = oneRandomInt();//random.nextInt(100);
         }
         return array;
     }
@@ -92,7 +90,7 @@ public class Arrays {
     public int[] random() {
         System.out.print("Введите количество элементов рандомного заполняемого массива: ");
         int n = inputHelper.parserLength();
-               return rndWithLength(n);
+        return rndWithLength(n);
     }
 
 
