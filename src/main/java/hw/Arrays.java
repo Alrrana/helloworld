@@ -7,41 +7,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Arrays {
-    Scanner in = new Scanner(System.in);
+    protected InputHelper inputHelper = new InputHelper();
 
-
-
-    private int parserLength() {
-        int n = 0;
-        while (n <= 0) {
-           n=parser("Введено не число или отрицательное число, попробуйте ещё раз \n");
-        }
-
-        return n;
-    }
-
-    protected String input(){
-        return in.nextLine();
-    }
-
-
-    private int parser(String Message) {
-        Pattern pattern = Pattern.compile("^(-|\\+)?[0-9]+?$");
-        Matcher matcher;
-        int n = 0;
-        boolean flag = false;
-        String str;
-        while (!flag) {
-            str = input();//input();
-            matcher = pattern.matcher(str);
-            if (matcher.matches()) {
-                n = Integer.valueOf(str);
-                flag = true;
-            } else {
-                System.out.print(Message);//
-            }
-        }
-        return n;
+    public void setInputHelper(InputHelper inputHelper) {
+        this.inputHelper = inputHelper;
     }
 
     public int[] CreateVariable(int... b) {
@@ -81,11 +50,11 @@ public class Arrays {
 
     public int[] CreateStandart() {
         System.out.print("Введите количество элементов массива: ");
-        int n = parserLength();
+        int n = inputHelper.parserLength();
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Введите элемент массива: ");
-            array[i] = parser("Введено не число , попробуйте ещё раз \n");
+            array[i] = inputHelper.parser("Введено не число , попробуйте ещё раз \n");
         }
         return array;
     }
@@ -94,20 +63,11 @@ public class Arrays {
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Введите элемент массива: ");
-            array[i] = in.nextInt();
+            array[i] =inputHelper.parser("Введено не число , попробуйте ещё раз \n");
         }
         return array;
     }
 
-    public ArrayList<Integer> CreateArList(int n) {
-        ArrayList<Integer> array = new ArrayList<>();
-        int temp = 0;
-        for (int i = 0; i < n; i++) {
-
-            array.add(in.nextInt());
-        }
-        return array;
-    }
 
 //    public int[] random(int n) {
 //        int[] array = new int[n];
@@ -118,7 +78,7 @@ public class Arrays {
 //        return array;
 //    }
 
-    public static int[] rndWithLength(int n){
+    public int[] rndWithLength(int n){
         final Random random = new Random();
 
         int[] array = new int[n];
@@ -131,36 +91,7 @@ public class Arrays {
 
     public int[] random() {
         System.out.print("Введите количество элементов рандомного заполняемого массива: ");
-        int n = parserLength();
-
-//            if(in.hasNext("^\\s?[0-9]+\\\n?$")){
-//                n=in.nextInt();
-//            } else{
-//                System.out.print("Введено не число, попробуйте ещё раз \n");
-//                String str = in.nextLine();
-//            }
-//            if (!in.hasNextInt()) {
-//                System.out.print("Введено не число, попробуйте ещё раз\n ");
-//                String str = in.nextLine();
-//            } else {
-//                n = in.nextInt();
-//                if (n < 1) {
-//                    System.out.print("Введенное число меньше 1 и не может быть длинной массива, попробуйте ещё раз\n ");
-//                    n = 0;
-//                }
-//            }
-
-
-//            if (in.hasNextInt()) {
-//                if(in.nextInt()>1){
-//                    n = in.nextInt();
-//                }
-//            } else {
-//                System.out.print("Неверный ввод, попробуйте ещё раз\n ");
-//                String str = in.nextLine();
-//            }
-
-
+        int n = inputHelper.parserLength();
                return rndWithLength(n);
     }
 

@@ -2,10 +2,22 @@ package hw;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+
+import static org.mockito.Mockito.*;
 
 public class SortsTest {
     int[] expected = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     Sorts sorts = new Sorts();
+
+
+
+  @BeforeAll
+  public void SetExpected(){
+
+  }
+
+
 
     @Test
     public void quickSortNoSortRequired() {
@@ -20,7 +32,10 @@ public class SortsTest {
 
     @Test
     public void quickSortReversedArray() {
-        int[] actual1 = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        Arrays arrays = mock(Arrays.class);
+      int[] t ={9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        when(arrays.CreateStandart()).thenReturn(t);
+        int[ ] actual1 = arrays.CreateStandart();
 
         sorts.QuickSort(actual1);
 
@@ -146,12 +161,12 @@ public class SortsTest {
         Assert.assertArrayEquals(actual1, expected);
 
     }
-
+    Arrays arrays =new Arrays();
 
     @Test
     public void RandomTestForInsertionModified1() {
 
-        int[] actual = Arrays.rndWithLength(100);
+        int[] actual = arrays.rndWithLength(100);
         int[] expect = actual;
         sorts.QuickSort(expect);
 
@@ -164,7 +179,7 @@ public class SortsTest {
     @Test
     public void RandomTestForInsertionModified2() {
 
-        int[] actual = Arrays.rndWithLength(100);
+        int[] actual = arrays.rndWithLength(100);
         int[] expect = actual;
         sorts.QuickSort(expect);
 
@@ -176,7 +191,7 @@ public class SortsTest {
     @Test
     public void RandomTestForInsertionModified3() {
 
-        int[] actual = Arrays.rndWithLength(100);
+        int[] actual = arrays.rndWithLength(100);
         int[] expect = actual;
         sorts.QuickSort(expect);
 
@@ -188,7 +203,7 @@ public class SortsTest {
     @Test
     public void RandomTestForInsertionModified4() {
 
-        int[] actual = Arrays.rndWithLength(100);
+        int[] actual = arrays.rndWithLength(100);
         int[] expect = actual;
         sorts.QuickSort(expect);
 
@@ -200,7 +215,7 @@ public class SortsTest {
     @Test
     public void RandomTestForInsertionModified5() {
 
-        int[] actual = Arrays.rndWithLength(100);
+        int[] actual = arrays.rndWithLength(100);
         int[] expect = actual;
         sorts.QuickSort(expect);
 
@@ -212,7 +227,7 @@ public class SortsTest {
     @Test
     public void RandomTestForInsertionModified6() {
 
-        int[] actual = Arrays.rndWithLength(100);
+        int[] actual = arrays.rndWithLength(100);
         int[] expect = actual;
         sorts.QuickSort(expect);
 
@@ -224,7 +239,7 @@ public class SortsTest {
     @Test
     public void RandomTestForInsertionModified7() {
 
-        int[] actual = Arrays.rndWithLength(100);
+        int[] actual = arrays.rndWithLength(100);
         int[] expect = actual;
         sorts.QuickSort(expect);
 
